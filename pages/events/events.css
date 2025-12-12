@@ -1,0 +1,368 @@
+/* ==========================================
+   Events Page Styles
+   ========================================== */
+
+/* Events Counters */
+.events-counters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.counter-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+}
+
+.counter-card:hover {
+    box-shadow: var(--shadow);
+}
+
+.counter-card i {
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+}
+
+.counter-card .value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: block;
+}
+
+.counter-card .label {
+    font-size: 12px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.counter-card.upcoming i {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent);
+}
+
+.counter-card.upcoming .value {
+    color: var(--accent);
+}
+
+.counter-card.past i {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.counter-card.past .value {
+    color: var(--success);
+}
+
+.counter-card.canceled i {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+.counter-card.canceled .value {
+    color: var(--danger);
+}
+
+/* Events Section */
+.events-section {
+    margin-bottom: 24px;
+}
+
+.events-section > h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-800);
+    padding: 16px 20px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+}
+
+.events-section > h3 .toggle-icon {
+    margin-left: auto;
+    transition: transform var(--transition);
+}
+
+.events-section.collapsed > h3 .toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.events-section.collapsed .events-section-content {
+    display: none;
+}
+
+/* Events List */
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Event Card */
+.event-card {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--primary);
+    transition: all var(--transition);
+}
+
+.event-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+}
+
+/* Event Card Colors by Type */
+.event-card.primary {
+    border-left-color: var(--primary);
+}
+
+.event-card.success {
+    border-left-color: var(--success);
+}
+
+.event-card.warning {
+    border-left-color: var(--warning);
+}
+
+.event-card.info {
+    border-left-color: var(--info);
+}
+
+.event-card.gray {
+    border-left-color: var(--gray-400);
+}
+
+.event-card.canceled {
+    opacity: 0.6;
+    border-left-color: var(--danger);
+}
+
+/* Event Date */
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    text-align: center;
+    padding: 10px;
+    background: var(--gray-50);
+    border-radius: var(--radius);
+}
+
+.event-date .day {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1;
+}
+
+.event-date .month {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.event-date .year {
+    font-size: 11px;
+    color: var(--gray-400);
+}
+
+/* Event Info */
+.event-info {
+    flex: 1;
+}
+
+.event-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.event-header h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin: 0;
+}
+
+/* Event Type Badge */
+.event-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--radius);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.event-type-badge.primary {
+    background: rgba(30, 58, 95, 0.1);
+    color: var(--primary);
+}
+
+.event-type-badge.success {
+    background: var(--success-light);
+    color: var(--success-dark);
+}
+
+.event-type-badge.warning {
+    background: var(--warning-light);
+    color: var(--warning-dark);
+}
+
+.event-type-badge.info {
+    background: var(--info-light);
+    color: var(--info-dark);
+}
+
+.event-type-badge.gray {
+    background: var(--gray-200);
+    color: var(--gray-600);
+}
+
+/* Event Meta */
+.event-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--gray-500);
+}
+
+.event-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.event-meta i {
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+.event-description {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+/* Event Actions */
+.event-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+/* Status Badge */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.primary {
+    background: rgba(30, 58, 95, 0.1);
+    color: var(--primary);
+}
+
+.status-badge.success {
+    background: var(--success-light);
+    color: var(--success-dark);
+}
+
+.status-badge.danger {
+    background: var(--danger-light);
+    color: var(--danger-dark);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* Empty List */
+.empty-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    color: var(--gray-400);
+    text-align: center;
+}
+
+.empty-list i {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.empty-list p {
+    font-size: 14px;
+}
+
+/* Modal Large */
+.modal-lg {
+    max-width: 600px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .events-counters {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        flex-direction: column;
+    }
+    
+    .event-date {
+        flex-direction: row;
+        gap: 8px;
+        justify-content: flex-start;
+        min-width: auto;
+    }
+    
+    .event-actions {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+

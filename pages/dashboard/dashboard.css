@@ -1,0 +1,436 @@
+/* ==========================================
+   Dashboard Styles
+   ========================================== */
+
+/* Loading State */
+.dashboard-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    gap: 16px;
+}
+
+.dashboard-loading .spinner {
+    border-color: var(--gray-300);
+    border-top-color: var(--primary);
+}
+
+.dashboard-loading p {
+    color: var(--gray-500);
+    font-size: 14px;
+}
+
+/* ==========================================
+   Stats Grid
+   ========================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.stat-card.income .stat-icon {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.stat-card.expense .stat-icon {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+.stat-card.balance .stat-icon,
+.stat-card.positive .stat-icon {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent);
+}
+
+.stat-card.negative .stat-icon {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+.stat-card.info .stat-icon {
+    background: var(--info-light);
+    color: var(--info);
+}
+
+.stat-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: var(--gray-500);
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.stat-variation {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-variation.positive {
+    color: var(--success);
+}
+
+.stat-variation.negative {
+    color: var(--danger);
+}
+
+.stat-variation.neutral {
+    color: var(--gray-500);
+}
+
+/* ==========================================
+   Dashboard Grid
+   ========================================== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.dashboard-grid.two-cols {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* ==========================================
+   Chart Container
+   ========================================== */
+.chart-container {
+    height: 280px;
+    position: relative;
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ==========================================
+   Alerts List
+   ========================================== */
+.alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+.alert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    border-radius: var(--radius);
+    background: var(--gray-50);
+}
+
+.alert-item.success {
+    background: var(--success-light);
+}
+
+.alert-item.warning {
+    background: var(--warning-light);
+}
+
+.alert-item.danger {
+    background: var(--danger-light);
+}
+
+.alert-item.info {
+    background: var(--info-light);
+}
+
+.alert-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.alert-item.success .alert-icon {
+    background: var(--success);
+    color: var(--white);
+}
+
+.alert-item.warning .alert-icon {
+    background: var(--warning);
+    color: var(--white);
+}
+
+.alert-item.danger .alert-icon {
+    background: var(--danger);
+    color: var(--white);
+}
+
+.alert-item.info .alert-icon {
+    background: var(--info);
+    color: var(--white);
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-content strong {
+    display: block;
+    font-size: 13px;
+    color: var(--gray-800);
+    margin-bottom: 2px;
+}
+
+.alert-content p {
+    font-size: 12px;
+    color: var(--gray-600);
+    margin: 0;
+}
+
+.empty-alerts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--gray-400);
+}
+
+.empty-alerts i {
+    font-size: 48px;
+    margin-bottom: 12px;
+    color: var(--success);
+}
+
+.empty-alerts p {
+    font-size: 14px;
+}
+
+/* ==========================================
+   Categories List (Dashboard)
+   ========================================== */
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.category-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.category-bar {
+    height: 8px;
+    background: var(--gray-200);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.category-bar-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.5s ease;
+}
+
+.category-bar-fill.income {
+    background: linear-gradient(90deg, var(--success) 0%, #3dd28f 100%);
+}
+
+.category-bar-fill.expense {
+    background: linear-gradient(90deg, var(--danger) 0%, #f87171 100%);
+}
+
+.empty-categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--gray-400);
+}
+
+.empty-categories i {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.empty-categories p {
+    font-size: 14px;
+}
+
+/* ==========================================
+   Empty Dashboard
+   ========================================== */
+.empty-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.empty-dashboard-content {
+    max-width: 400px;
+    margin-bottom: 40px;
+}
+
+.empty-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.empty-icon i {
+    font-size: 48px;
+    color: var(--white);
+}
+
+.empty-dashboard h2 {
+    font-size: 24px;
+    color: var(--gray-900);
+    margin-bottom: 12px;
+}
+
+.empty-dashboard p {
+    color: var(--gray-500);
+    margin-bottom: 8px;
+}
+
+.empty-dashboard .hint {
+    font-size: 14px;
+    color: var(--gray-400);
+}
+
+.quick-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.quick-stats {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.quick-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.quick-stat-card i {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.quick-stat-card span {
+    font-size: 14px;
+    color: var(--gray-600);
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .quick-actions .btn {
+        width: 100%;
+    }
+}
+
