@@ -1,0 +1,147 @@
+/* ==========================================
+   Categories Page Styles
+   ========================================== */
+
+/* Categories Grid */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* Category List */
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list .category-item {
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.category-list .category-item:last-child {
+    border-bottom: none;
+}
+
+/* Category Item Main */
+.category-item-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    transition: background var(--transition);
+}
+
+.category-item-main:hover {
+    background: var(--gray-50);
+    margin: 0 -24px;
+    padding: 14px 24px;
+}
+
+/* Category Icon */
+.category-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.category-icon.income {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.category-icon.expense {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+/* Category Name */
+.category-item-main .category-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+/* Category Actions */
+.category-actions {
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.category-item-main:hover .category-actions,
+.subcategory-item:hover .category-actions {
+    opacity: 1;
+}
+
+/* Subcategory List */
+.subcategory-list {
+    list-style: none;
+    padding: 0 0 8px 48px;
+    margin: 0;
+}
+
+.subcategory-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-left: 2px solid var(--gray-200);
+    padding-left: 16px;
+    margin-left: -16px;
+    transition: background var(--transition);
+}
+
+.subcategory-item:hover {
+    background: var(--gray-50);
+    margin-right: -24px;
+    padding-right: 24px;
+}
+
+.subcategory-icon {
+    color: var(--gray-400);
+    font-size: 14px;
+}
+
+.subcategory-item .category-name {
+    flex: 1;
+    font-size: 13px;
+    color: var(--gray-600);
+}
+
+/* Empty Categories */
+.empty-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    color: var(--gray-400);
+    text-align: center;
+}
+
+.empty-list i {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.empty-list p {
+    font-size: 14px;
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (max-width: 992px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

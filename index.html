@@ -4,15 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Church Manager</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- CSS Modules -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/layouts.css">
+    <link rel="stylesheet" href="pages/auth/auth.css">
+    <link rel="stylesheet" href="pages/dashboard/dashboard.css">
+    <link rel="stylesheet" href="pages/events/events.css">
+    <link rel="stylesheet" href="pages/recurring-events/recurring-events.css">
+    <link rel="stylesheet" href="pages/reports/reports.css">
+    <link rel="stylesheet" href="pages/categories/categories.css">
+    <link rel="stylesheet" href="pages/entries/entries.css">
+    <link rel="stylesheet" href="pages/recurring-entries/recurring-entries.css">
+    <link rel="stylesheet" href="pages/entities/entities.css">
 </head>
 <body>
     <div id="app">
-        <!-- Tela de Login -->
+        <!-- ==========================================
+             Tela de Login 
+             ========================================== -->
         <div id="login-screen" class="auth-container">
             <div class="auth-card">
                 <div class="auth-header">
@@ -58,7 +78,9 @@
             </div>
         </div>
 
-        <!-- Tela de Onboarding -->
+        <!-- ==========================================
+             Tela de Onboarding 
+             ========================================== -->
         <div id="onboarding-screen" class="auth-container hidden">
             <div class="auth-card auth-card-wide">
                 <div class="auth-header">
@@ -214,7 +236,9 @@
             </div>
         </div>
 
-        <!-- Dashboard -->
+        <!-- ==========================================
+             Dashboard 
+             ========================================== -->
         <div id="dashboard-screen" class="dashboard-container hidden">
             <!-- Sidebar -->
             <aside class="sidebar">
@@ -314,6 +338,37 @@
         <div class="spinner"></div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- ==========================================
+         JavaScript Modules
+         ========================================== -->
+    <!-- Shared -->
+    <script src="shared/state.js"></script>
+    <script src="shared/api.js"></script>
+    <script src="shared/utils.js"></script>
+    <script src="shared/toast.js"></script>
+    <script src="shared/router.js"></script>
+    
+    <!-- Pages - Auth -->
+    <script src="pages/auth/login.js"></script>
+    <script src="pages/auth/onboarding.js"></script>
+    
+    <!-- Pages - Dashboard -->
+    <script src="pages/dashboard/dashboard.js"></script>
+    
+    <!-- Pages - Events -->
+    <script src="pages/events/events.js"></script>
+    <script src="pages/recurring-events/recurring-events.js"></script>
+    <script src="pages/reports/reports.js"></script>
+    <script src="pages/categories/categories.js"></script>
+    <script src="pages/entries/entries.js"></script>
+    <script src="pages/recurring-entries/recurring-entries.js"></script>
+    <script src="pages/entities/companies.js"></script>
+    <script src="pages/entities/churches.js"></script>
+    <script src="pages/entities/users.js"></script>
+    <script src="pages/entities/ministries.js"></script>
+    
+    <!-- App Init -->
+    <script src="app-modular.js"></script>
 </body>
 </html>
+

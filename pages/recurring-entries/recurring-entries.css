@@ -1,0 +1,227 @@
+/* ==========================================
+   Recurring Financial Entries Page Styles
+   ========================================== */
+
+/* Grid Layout */
+.recurring-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* Recurring List */
+.recurring-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recurring-item {
+    border-bottom: 1px solid var(--gray-100);
+    transition: background var(--transition);
+}
+
+.recurring-item:last-child {
+    border-bottom: none;
+}
+
+.recurring-item.inactive {
+    opacity: 0.5;
+}
+
+.recurring-item.inactive .recurring-name {
+    text-decoration: line-through;
+}
+
+/* Recurring Main Row */
+.recurring-main {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.recurring-main:hover {
+    background: var(--gray-50);
+    margin: 0 -24px;
+    padding: 16px 24px;
+}
+
+/* Recurring Icon */
+.recurring-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.recurring-icon.income {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.recurring-icon.expense {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+/* Recurring Info */
+.recurring-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.recurring-name {
+    display: block;
+    font-weight: 500;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.recurring-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.recurring-category {
+    font-size: 12px;
+    color: var(--gray-600);
+    background: var(--gray-100);
+    padding: 2px 8px;
+    border-radius: var(--radius);
+}
+
+.recurring-frequency {
+    font-size: 12px;
+    color: var(--gray-500);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Recurring Amount */
+.recurring-amount {
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.recurring-amount.income {
+    color: var(--success);
+}
+
+.recurring-amount.expense {
+    color: var(--danger);
+}
+
+/* Recurring Status */
+.recurring-status {
+    margin-left: 8px;
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.status-badge.active {
+    background: var(--success-light);
+    color: var(--success-dark);
+}
+
+.status-badge.inactive {
+    background: var(--gray-200);
+    color: var(--gray-600);
+}
+
+/* Recurring Actions */
+.recurring-actions {
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.recurring-main:hover .recurring-actions {
+    opacity: 1;
+}
+
+/* Button Icon Variants */
+.btn-icon.warning {
+    color: var(--warning);
+}
+
+.btn-icon.warning:hover {
+    background: var(--warning-light);
+}
+
+.btn-icon.success {
+    color: var(--success);
+}
+
+.btn-icon.success:hover {
+    background: var(--success-light);
+}
+
+/* Checkbox Label */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (max-width: 992px) {
+    .recurring-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .recurring-main {
+        flex-wrap: wrap;
+    }
+    
+    .recurring-info {
+        flex: 1 1 calc(100% - 60px);
+    }
+    
+    .recurring-amount {
+        order: 4;
+        width: 100%;
+        text-align: right;
+        margin-top: 8px;
+    }
+    
+    .recurring-status {
+        margin-left: 0;
+    }
+    
+    .recurring-actions {
+        opacity: 1;
+    }
+}
+
