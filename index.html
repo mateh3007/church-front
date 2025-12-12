@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Tela de Login -->
+        <div id="login-screen" class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="logo">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h1>Church Manager</h1>
+                    <p>Faça login para continuar</p>
+                </div>
+                
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="login-email">E-mail</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="login-email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Senha</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="login-password" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword('login-password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span>Entrar</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Primeira vez aqui?</p>
+                    <button type="button" class="btn btn-link" onclick="showScreen('onboarding-screen')">
+                        Criar nova organização
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Onboarding -->
+        <div id="onboarding-screen" class="auth-container hidden">
+            <div class="auth-card auth-card-wide">
+                <div class="auth-header">
+                    <div class="logo">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h1>Criar Organização</h1>
+                    <p>Configure sua organização e conta de administrador</p>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span>Organização</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span>Administrador</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span>Igreja</span>
+                    </div>
+                </div>
+                
+                <!-- Step 1: Dados da Organização -->
+                <form id="onboarding-step1" class="auth-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company-name">Nome da Organização</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-building"></i>
+                                <input type="text" id="company-name" placeholder="Ex: Igreja Batista Central" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company-document">CNPJ / Documento</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-id-card"></i>
+                                <input type="text" id="company-document" placeholder="00.000.000/0001-00" maxlength="20" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-address">Endereço</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="company-address" placeholder="Rua, número - Bairro, Cidade" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="showScreen('login-screen')">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <span>Próximo</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Step 2: Dados do Admin -->
+                <form id="onboarding-step2" class="auth-form hidden">
+                    <div class="form-group">
+                        <label for="admin-name">Nome Completo</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="admin-name" placeholder="Seu nome completo" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admin-email">E-mail</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="admin-email" placeholder="admin@suaigreja.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="admin-password">Senha</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="admin-password" placeholder="Mínimo 8 caracteres" minlength="8" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="admin-password-confirm">Confirmar Senha</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="admin-password-confirm" placeholder="Repita a senha" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="goToStep(1)">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <span>Criar Conta</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Step 3: Criar Igreja -->
+                <form id="onboarding-step3" class="auth-form hidden">
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Organização criada com sucesso!</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="church-name">Nome da Igreja</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-church"></i>
+                            <input type="text" id="church-name" placeholder="Ex: Sede Central" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="church-description">Descrição</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-align-left"></i>
+                            <input type="text" id="church-description" placeholder="Breve descrição da igreja">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="church-address">Endereço</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="church-address" placeholder="Endereço da igreja" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span>Concluir Cadastro</span>
+                        <i class="fas fa-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard-screen" class="dashboard-container hidden">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="logo-small">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h2>Church Manager</h2>
+                </div>
+                
+                <nav class="sidebar-nav">
+                    <a href="#" class="nav-item active" data-section="dashboard">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="companies">
+                        <i class="fas fa-building"></i>
+                        <span>Empresas</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="churches">
+                        <i class="fas fa-church"></i>
+                        <span>Igrejas</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="users">
+                        <i class="fas fa-users"></i>
+                        <span>Usuários</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="ministries">
+                        <i class="fas fa-hands-praying"></i>
+                        <span>Ministérios</span>
+                    </a>
+                    
+                    <div class="nav-section-title">Financeiro</div>
+                    <a href="#" class="nav-item" data-section="categories">
+                        <i class="fas fa-tags"></i>
+                        <span>Categorias</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="entries">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="recurring">
+                        <i class="fas fa-repeat"></i>
+                        <span>Recorrentes</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="reports">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Relatórios</span>
+                    </a>
+                    
+                    <div class="nav-section-title">Calendário</div>
+                    <a href="#" class="nav-item" data-section="events">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="recurring-events">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Eventos Recorrentes</span>
+                    </a>
+                </nav>
+                
+                <div class="sidebar-footer">
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-details">
+                            <span id="user-name">Usuário</span>
+                            <span id="user-role" class="user-role">Admin</span>
+                        </div>
+                    </div>
+                    <button class="btn-logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="main-content">
+                <header class="content-header">
+                    <h1 id="page-title">Dashboard</h1>
+                    <span id="current-church" class="current-church">Igreja não selecionada</span>
+                </header>
+                
+                <div id="content-area" class="content-area">
+                    <!-- Conteúdo dinâmico será carregado aqui -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
